@@ -9,13 +9,13 @@
 
 body{
 
-    position: relative;
-    width: 100%;
-    min-width: 100vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color:rgb(212, 91, 168);
+    width: 100%;
+    min-height: 100vh;
+    background-color: rgb(212, 91, 168);
 
 }
 
@@ -33,9 +33,8 @@ body{
 
 .container .tenor-gif-embed{
 
-    display: flex;
-    max-width: 200px;
-
+    max-width: 250px;
+    width: 100%;
 }
 
 .container .btn{
