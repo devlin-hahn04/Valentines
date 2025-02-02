@@ -2,17 +2,42 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="cardStyle.css">
-    <title> Document</title>
+    <title>Document</title>
+    <script>
+        // Set the target date (e.g., February 14, 2025)
+        const targetDate = new Date("2025-02-14");
 
+        // Check if the current date is before the target date
+        window.onload = function() {
+            const currentDate = new Date();
+            const valentinesCard = document.querySelector('.valentines-card');
+            const beforeValentinesContent = document.querySelector('.before-valentines-content');
+            
+            // Hide or show content based on the date
+            if (currentDate < targetDate) {
+                valentinesCard.style.display = 'none';  // Hide the Valentine's card
+                beforeValentinesContent.style.display = 'block';  // Show alternative content
+            } else {
+                valentinesCard.style.display = 'block';  // Show the Valentine's card
+                beforeValentinesContent.style.display = 'none';  // Hide alternative content
+            }
+        };
+    </script>
 </head>
 
 <body>
 
-    <div class="valentines-card">
+    <!-- Content to display before February 14 -->
+    <div class="before-valentines-content" style="display:none;">
+        <h1>Get ready for Valentine's Day!</h1>
+        <p>We'll have something special for you on February 14!</p>
+    </div>
+
+    <!-- Valentine's Card Content -->
+    <div class="valentines-card" style="display:none;">
         <input id="open" type="checkbox">
         <label class="open" for="open"></label>
         <div class="card-front">
@@ -24,8 +49,7 @@
             <div class="smile"></div>
             <div class="eyes"></div>
         </div>
-        
     </div>
 
-
 </body>
+</html>
