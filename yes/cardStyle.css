@@ -16,6 +16,40 @@ input#open{
 
 }
 
+.before-valentines-content{
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -100%);
+    text-align: center;
+
+}
+
+.emailbtn {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px; /* Adds spacing between the text and the button */
+}
+
+.emailbtn a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #cb7575;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.emailbtn a:hover {
+    background-color: #ba1c1c;
+}
+
+
+
+
 .valentines-card{
 
     position: relative;

@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="cardStyle.css">
     <title>Document</title>
+
+    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css">
+    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+
     <script>
         // Set the target date (e.g., February 14, 2025)
         const targetDate = new Date("2025-02-14");
@@ -25,7 +29,23 @@
                 beforeValentinesContent.style.display = 'none';  // Hide alternative content
             }
         };
+
+        // Function to send request to PythonAnywhere Flask app
+        function sendRequest() {
+            fetch("https://dh2604.pythonanywhere.com/send-email", {
+                method: "POST",
+                mode: "cors",  // Enable CORS
+                headers: {
+                    "Content-Type": "application/json",
+                }
+            })
+            .then(response => response.json())
+            .then(data => alert("Response: " + data.message))
+            .catch(error => console.error("Error:", error));
+        }
+
     </script>
+
 </head>
 
 <body>
@@ -33,7 +53,11 @@
     <!-- Content to display before February 14 -->
     <div class="before-valentines-content" style="display:none;">
         <h1>Get ready for Valentine's Day!</h1>
-        <p>We'll have something special for you on February 14!</p>
+        <p>There's something special for you on February 14!</p>
+
+        <!-- Button to make request to Flask -->
+        <button onclick="sendRequest()">Send Request to Flask</button>
+
     </div>
 
     <!-- Valentine's Card Content -->
