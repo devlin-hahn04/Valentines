@@ -8,7 +8,6 @@
     <title>Document</title>
 
     <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css">
-    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
 
     <script>
         // Set the target date (e.g., February 14, 2025)
@@ -28,7 +27,44 @@
                 valentinesCard.style.display = 'block';  // Show the Valentine's card
                 beforeValentinesContent.style.display = 'none';  // Hide alternative content
             }
+
+
         };
+
+                window.onload = function() {
+            const currentDate = new Date();
+            const targetDate = new Date("2025-02-14");
+
+            const valentinesCard = document.querySelector('.valentines-card');
+            const beforeValentinesContent = document.querySelector('.before-valentines-content');
+
+            if (currentDate < targetDate) {
+                valentinesCard.style.display = 'none';
+                beforeValentinesContent.style.display = 'block';
+                addRandomHearts();
+            } else {
+                valentinesCard.style.display = 'block';
+                beforeValentinesContent.style.display = 'none';
+            }
+        };
+
+        function addRandomHearts() {
+            const heartContainer = document.body; // Add hearts to the body
+            const numHearts = 10; // Number of hearts
+
+            for (let i = 0; i < numHearts; i++) {
+                let heart = document.createElement("div");
+                heart.classList.add("heart-shape");
+                
+                // Random positioning
+                heart.style.left = Math.random() * 100 + "vw";
+                heart.style.top = Math.random() * 100 + "vh";
+
+                heartContainer.appendChild(heart);
+            }
+        }
+
+
 
         // Function to send request to PythonAnywhere Flask app
         function sendRequest() {
@@ -43,6 +79,7 @@
             .then(data => alert("Response: " + data.message))
             .catch(error => console.error("Error:", error));
         }
+        
 
     </script>
 
@@ -50,8 +87,14 @@
 
 <body>
 
-    <!-- Content to display before February 14 -->
+      <!-- Content to display before February 14 -->
     <div class="before-valentines-content" style="display:none;">
+        <!-- Add the GIF above the text -->
+        <div class="tenor-gif-embed" data-postid="8561921850281712954" data-share-method="host" data-aspect-ratio="1.23881" data-width="100%">
+            <a href="https://tenor.com/view/hug-squeeze-cute-cuddle-love-gif-8561921850281712954">Hug Squeeze GIF</a> from <a href="https://tenor.com/search/hug-gifs">Hug GIFs</a>
+        </div>
+        <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+        
         <h1>Get ready for Valentine's Day!</h1>
         <p>There's something special for you on February 14!</p>
 
